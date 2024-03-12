@@ -7,7 +7,7 @@ from airplanes.utils import get_log
 
 class AirplaneTestCase(TestCase):
     def setUp(self):
-        self.airplane_1_id = 1
+        self.airplane_1_id = 2
         self.airplane_1_fuel_tank_capacity_in_liters = (
             settings.FUEL_TANK_CAPACITY_MULTIPLIER * self.airplane_1_id
         )
@@ -17,7 +17,7 @@ class AirplaneTestCase(TestCase):
         )
 
     def test_airplane_creation(self):
-        airplane = Airplane(id=self.airplane_1_id)
+        airplane = Airplane.objects.create(id=self.airplane_1_id)
         self.assertEqual(airplane.id, self.airplane_1_id)
         self.assertEqual(
             airplane.fuel_tank_capacity_in_liters,
