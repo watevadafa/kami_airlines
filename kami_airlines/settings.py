@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,3 +124,13 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+FUEL_TANK_CAPACITY_MULTIPLIER = os.environ.get(
+    "FUEL_TANK_CAPACITY_MULTIPLIER", 200
+)
+AIRPLANE_FUEL_CONSUMPTION_MULTIPLIER = os.environ.get(
+    "AIRPLANE_FUEL_CONSUMPTION_MULTIPLIER", 0.8
+)
+PER_PASSENGER_FUEL_CONSUMPTION_MULTIPLIER = os.environ.get(
+    "PER_PASSENGER_FUEL_CONSUMPTION_MULTIPLIER", 0.002
+)
