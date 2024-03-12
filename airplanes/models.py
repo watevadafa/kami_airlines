@@ -6,19 +6,26 @@ from airplanes.utils import get_log
 
 class Airplane(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    fuel_tank_capacity_in_liters = models.PositiveIntegerField()
-    fuel_consumption_rate_per_minute = models.DecimalField(
-        max_digits=12, decimal_places=4
-    )
 
     def __str__(self):
         return f"Airplane - {self.id}"
 
-    def save(self, *args, **kwargs):
-        self.fuel_tank_capacity_in_liters = (
-            settings.FUEL_TANK_CAPACITY_MULTIPLIER * self.id
+    @property
+    def fuel_tank_capacity_in_liters(self):
+        """
+        Get the fuel tank capacity in liters.
+        """
+        return (
+            None
+            if self.id is None
+            else self.id * settings.FUEL_TANK_CAPACITY_MULTIPLIER
         )
-        self.fuel_consumption_rate_per_minute = (
-            settings.AIRPLANE_FUEL_CONSUMPTION_MULTIPLIER * get_log(self.id)
+
+    @property
+    def fuel_consumption_rate_per_minute(self):
+        return (
+            None
+            if self.id is None
+            else get_log(self.id)
+            * settings.AIRPLANE_FUEL_CONSUMPTION_MULTIPLIER
         )
-        super(Airplane, self).save(*args, **kwargs)
