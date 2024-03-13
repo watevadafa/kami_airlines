@@ -5,6 +5,11 @@ from airplanes.utils import get_log
 
 
 class Airplane(models.Model):
+    """
+    Airplane model with only id field.
+    fuel_tank_capacity_in_liters and fuel_consumption_rate_per_minute are calculated properties.
+    """
+
     id = models.PositiveIntegerField(primary_key=True)
 
     def __str__(self):
@@ -13,7 +18,7 @@ class Airplane(models.Model):
     @property
     def fuel_tank_capacity_in_liters(self):
         """
-        Get the fuel tank capacity in liters.
+        Returns the airplane's fuel tank capacity in liters
         """
         return (
             None
@@ -23,6 +28,9 @@ class Airplane(models.Model):
 
     @property
     def fuel_consumption_rate_per_minute(self):
+        """
+        Returns the airplane's fuel consumption rate in liters per minute
+        """
         return (
             None
             if self.id is None

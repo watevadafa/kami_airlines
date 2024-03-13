@@ -4,7 +4,15 @@ from airplanes.models import Airplane
 
 
 class AirplaneModelSerializer(serializers.ModelSerializer):
+    """
+    Basic Model Serializer for the Airplane model
+    """
+
     class Meta:
+        """
+        Metadata for the serializer
+        """
+
         model = Airplane
         fields = [
             "id",
