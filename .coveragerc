@@ -2,4 +2,4 @@
 show_missing=true
 
 [run]
-omit = *migrations*, manage.py, */asgi.py, */wsgi.py
+omit = *migrations*, manage.py, */asgi.py, */wsgi.py, *test*
