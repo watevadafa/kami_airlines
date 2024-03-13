@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -o errexit
+set -e 
+set -u 
 set -o pipefail
-set -o nounset
 
 python3 manage.py makemigrations
 python3 manage.py migrate --noinput
