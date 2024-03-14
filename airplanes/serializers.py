@@ -3,7 +3,7 @@ from rest_framework import serializers
 from airplanes.models import Airplane
 
 
-class AirplaneModelSerializer(serializers.ModelSerializer):
+class AirplaneSerializer(serializers.ModelSerializer):
     """
     Basic Model Serializer for the Airplane model
     """
