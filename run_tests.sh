@@ -1,7 +1,4 @@
 #!/bin/bash
+set -euo pipefail
 
-set -e 
-set -u 
-set -o pipefail
-
-coverage run --source='.' manage.py test && coverage report
+coverage run manage.py test && coverage report

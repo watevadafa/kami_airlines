@@ -12,8 +12,9 @@ from airplanes.tests.factories import AirplaneFactory
 
 
 class AirplaneModelTestCase(TestCase):
-    def setUp(self) -> None:  # noqa C0103
-        self.data: dict = AirplaneFactory().get_data()
+    def setUp(self) -> None:
+        self.factory = AirplaneFactory()
+        self.data: dict = self.factory.get_data()
         self.airplane_id: int = self.data["id"]
         self.number_of_passengers: int = self.data["number_of_passengers"]
         self.airplane_str: str = f"Airplane - {self.airplane_id}"

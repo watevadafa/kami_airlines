@@ -1,5 +1,11 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
+from airplanes.constants import (
+    AIRPLANE_MIN_ID,
+    AIRPLANE_MAX_ID,
+    DEFAULT_NUMBER_OF_PASSENGERS,
+)
 from airplanes.utils import (
     calculate_fuel_tank_capacity_in_liters,
     calculate_fuel_consumption_rate_per_minute,
@@ -13,20 +19,28 @@ class Airplane(models.Model):
     Others are calculated properties include
     """
 
-    id = models.PositiveIntegerField(primary_key=True)
-    number_of_passengers = models.PositiveIntegerField(default=0)
+    id = models.PositiveIntegerField(
+        primary_key=True,
+        validators=[
+            MinValueValidator(AIRPLANE_MIN_ID),
+            MaxValueValidator(AIRPLANE_MAX_ID),
+        ],
+    )
+    number_of_passengers = models.PositiveIntegerField(
+        default=DEFAULT_NUMBER_OF_PASSENGERS
+    )
 
     def __str__(self) -> str:
         return f"Airplane - {self.id}"
 
     @property
     def fuel_tank_capacity_in_liters(self) -> int:
-        return calculate_fuel_tank_capacity_in_liters(self.id)
+        return calculate_fuel_tank_capacity_in_liters(int(self.id))
 
     @property
     def fuel_consumption_rate_per_minute(self) -> float:
         return calculate_fuel_consumption_rate_per_minute(
-            self.id, self.number_of_passengers
+            int(self.id), int(self.number_of_passengers)
         )
 
     @property

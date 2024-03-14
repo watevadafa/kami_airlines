@@ -1,5 +1,7 @@
 [report]
 show_missing=true
+fail_under = 80
 
 [run]
+source=.
 omit = *migrations*, manage.py, */asgi.py, */wsgi.py, */test_*.py

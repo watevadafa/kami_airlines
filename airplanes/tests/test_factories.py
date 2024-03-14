@@ -31,7 +31,7 @@ class AirplaneFactoryTestCase(TestCase):
 
     def test_generate_data_number_of_passenger_provided(self):
         factory = AirplaneFactory()
-        data = factory.generate_data(9,99)
+        data = factory.generate_data(9, 99)
         self.assertEqual(data["id"], 9)
         self.assertEqual(data["number_of_passengers"], 99)
 

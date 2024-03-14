@@ -1,8 +1,5 @@
 #!/bin/bash
-
-set -e 
-set -u 
-set -o pipefail
+set -euo pipefail
 
 python3 manage.py makemigrations
 python3 manage.py migrate --noinput
