@@ -24,12 +24,18 @@ class AirplaneFactory:
 
         return available_airplane_ids
 
-    def generate_data(self, airplane_id: int) -> dict:
+    def generate_data(
+        self, airplane_id: int, number_of_passengers: int = None
+    ) -> dict:
         """Returns a single randomly generated airplane test data dict"""
 
         data: dict = {}
         data["id"] = airplane_id
-        data["number_of_passengers"] = random.randint(0, 999)
+        data["number_of_passengers"] = (
+            number_of_passengers
+            if number_of_passengers
+            else random.randint(0, 999)
+        )
 
         return data
 

@@ -40,5 +40,23 @@ class AirplaneModelTestCase(TestCase):
         self.assertEqual(self.airplane.id, self.airplane_id)
         self.assertEqual(Airplane.objects.count(), 1)
 
-    def test_airplane_str(self):
+    def test_airplane_str(self) -> None:
         self.assertEqual(str(self.airplane), self.airplane_str)
+
+    def test_airplane_fuel_tank_capacity_in_liters(self) -> None:
+        self.assertEqual(
+            self.airplane.fuel_tank_capacity_in_liters,
+            self.fuel_tank_capacity_in_liters,
+        )
+
+    def test_airplane_fuel_consumption_rate_per_minute(self) -> None:
+        self.assertEqual(
+            self.airplane.fuel_consumption_rate_per_minute,
+            self.fuel_consumption_rate_per_minute,
+        )
+
+    def test_airplane_maximum_flight_duration_in_minutes(self) -> None:
+        self.assertEqual(
+            self.airplane.maximum_flight_duration_in_minutes,
+            self.maximum_flight_duration_in_minutes,
+        )
