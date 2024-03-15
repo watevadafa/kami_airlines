@@ -12,7 +12,6 @@ class AirplaneViewSetTestCase(APITestCase):
         self.factory = AirplaneFactory()
         self.bulk_data: list = self.factory.get_bulk_data(10)
         self.client = APIClient()
-        print(self.bulk_data)
 
         self.view = AirplaneViewSet.as_view({"post": "evaluate"})
 

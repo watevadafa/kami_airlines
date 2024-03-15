@@ -112,3 +112,35 @@ API written in Python for a airline company called KAMI Airlines, to create the 
     }
 ]
 ```
+
+### Coverage
+```
+> bash run_tests.sh
+Found 17 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.020s
+
+OK
+Destroying test database for alias 'default'...
+Name                           Stmts   Miss  Cover   Missing
+------------------------------------------------------------
+airplanes/__init__.py              0      0   100%
+airplanes/admin.py                 8      0   100%
+airplanes/apps.py                  4      0   100%
+airplanes/constants.py             6      0   100%
+airplanes/models.py               18      0   100%
+airplanes/serializers.py          10      0   100%
+airplanes/tests/__init__.py        0      0   100%
+airplanes/tests/factories.py      21      0   100%
+airplanes/utils.py                10      0   100%
+airplanes/views.py                18      0   100%
+kami_airlines/__init__.py          0      0   100%
+kami_airlines/settings.py         19      0   100%
+kami_airlines/urls.py              7      0   100%
+------------------------------------------------------------
+TOTAL                            121      0   100%
+
+```
