@@ -19,8 +19,10 @@ def calculate_fuel_consumption_rate_per_minute(
 ) -> float:
     """Returns the airplane's fuel consumption rate in liters per minute"""
 
+    log_of_airplane_id: float = 0 if airplane_id == 0 else math.log(airplane_id)
+
     airplane_fuel_consumption_per_minute: float = (
-        math.log(airplane_id) * AIRPLANE_FUEL_CONSUMPTION_MULTIPLIER
+        log_of_airplane_id * AIRPLANE_FUEL_CONSUMPTION_MULTIPLIER
     )
     per_passenger_fuel_consumption_per_minute: float = (
         number_of_passengers * PER_PASSENGER_FUEL_CONSUMPTION_MULTIPLIER
